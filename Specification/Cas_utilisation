@@ -1,0 +1,40 @@
+@startuml
+
+title Diagramme des cas d'utilisations
+
+
+:Utilisateur:
+
+rectangle "Trouver un vin" {
+(Se connecter)
+(Creer un compte)
+(Choisir un plat)
+(Avoir la liste des vins)
+
+rectangle "Optionnel selon le temps" {
+
+(Observer les régions des vins sur une carte de France) as obs
+(Cliquer sur une région) as cliq
+(Avoir la liste des vins de la région) as list1
+}
+
+}
+
+
+Utilisateur --> (Se connecter)
+Utilisateur --> (Creer un compte)
+
+(Se connecter) --> (Choisir un plat)
+(Creer un compte) --> (Choisir un plat)
+
+
+(Choisir un plat) --> (obs)
+(obs) --> (cliq)
+(cliq) --> (list1)
+
+(Choisir un plat) -->  (Avoir la liste des vins)
+
+
+@enduml
+
+
