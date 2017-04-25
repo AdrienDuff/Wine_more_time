@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <meta charset="utf-8" />
+        <link href="styleaccueil.css" rel="stylesheet" type="text/css" media="all"/> 
+        <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet" type="text/css">
+    </head>
+
+    <body>
+
+		<div> <h1 class="title"> Wine more time </h1> </div>
+  
+		<div class="texte"> 
+			Vous souhaitez organiser un repas digne de ce nom, vous avez pensé à tout dans les moindres détails et vous 
+			êtes certain que le repas sera à la hauteur des attentes de vos convives mais... vous avez oublié une chose : le vin idéal qui
+			mariera les saveurs de votre plat mitonné avec tant d'ardeur ! Quel vin allez-vous donc servir ? Notre site est justement là 
+			pour vous faire gagner un temps précieux en répondant à cette question existentielle à votre place ! Pour cela, une seule chose 
+			vous reste à faire : une fois identifié sur votre espace personnel, il vous suffit de sélectionner votre plat dans la base de données et
+			le tour est joué ! Si ce n'est déjà fait, nous vous invitons bien évidemment à vous inscrire à l'aide du formulaire ci-dessous. 
+		</div>
+    
+		<div class="main"> 
+    
+			<form action="POST"> 
+				<fieldset class="login">  	
+					<legend> Me connecter </legend>
+					<table style="width:100%"> 
+						<tr>
+							<td> <label> Pseudo  </label> <input type="text" placeholder="Saisissez votre pseudo" name="monPseudo1" id="pseudo1" />   </td> 
+							<td> <label> Mot de passe </label> <input type="password" placeholder="Saisissez votre mot de passe" name="monPassword1" id="password1" /> </td>
+							<td> <input  class="loginbutton" type="submit" name="login" value="Login"/> </td>
+						</tr>	
+					</table>
+				</fieldset>
+	
+				<div class="etiquetteOU"> <label> OU </label> </div>
+    
+				<fieldset class="inscription">  
+					<legend> M'inscrire </legend>
+					<table>
+						<tr>
+							<td style="width:50%"> Prénom </td> 
+							<td style="width:100%" colspan="2"> <input type="text" placeholder="Saisissez votre prénom" name="monPrenom" id="prenom"/> </td>
+						</tr> 
+						<tr>
+							<td style="width:50%"> Nom </td> 
+							<td style="width:100%" colspan="2"> <input type="text" placeholder="Saisissez votre nom" name="monNom" id="nom"/> </td>
+						</tr>
+						<tr>
+							<td style="width:50%"> Adresse mail </td> 
+							<td style="width:100%" colspan="2"> <input type="text" placeholder="Saisissez votre email" name="monEmail" id="email"/> </td>
+						</tr>
+						<tr>
+							<td style="width:50%"> Pseudo </td> 
+							<td style="width:100%" colspan="2"> <input type="text" placeholder="Saisissez votre pseudo" name="monPseudo2" id="pseudo2"/> </td>
+						</tr>
+						<tr>
+							<td style="width:50%"> Mot de passe </td> 
+							<td style="width:100%" colspan="2"> <input type="text" placeholder="Saisissez votre mot de passe" name="monPassword2" id="password2"/> </td>
+						</tr>
+						<tr>
+							<td style="width:50%"> Confirmer mot de passe </td> 
+							<td style="width:100%" colspan="2"> <input type="text" placeholder="Confirmez votre mot de passe" name="confirmPassword" id="confirmpwd"/> </td>
+						</tr>
+					</table> 
+					</br>
+				
+					<input type="checkbox" name="check" value="Conditions" checked="checked"/> J'accepte les conditions générales du site 
+					</br>
+				
+					<div> <input class="submitbutton" type="submit" name="Valider" value="Soumettre" /> </div>
+				
+				</fieldset>
+			</form>
+   
+		</div>
+    
+    </body>
+
+</html>
