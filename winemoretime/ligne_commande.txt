@@ -1,0 +1,9 @@
+source C:/Users/benjamin/Desktop/GM/GM4/BD/region.sql
+source C:/Users/benjamin/Desktop/GM/GM4/BD/cepage.sql
+source C:/Users/benjamin/Desktop/GM/GM4/BD/appellation.sql
+source C:/Users/benjamin/Desktop/GM/GM4/BD/composeA.sql
+source C:/Users/benjamin/Desktop/GM/GM4/BD/volumetrie.sql
+source C:/Users/benjamin/Desktop/GM/GM4/BD/vin.sql
+source C:/Users/benjamin/Desktop/GM/GM4/BD/repas_vin.sql
+source C:/Users/benjamin/Desktop/GM/GM4/BD/associe.sql
+source C:/Users/benjamin/Desktop/GM/GM4/BD/app_millesime.sql

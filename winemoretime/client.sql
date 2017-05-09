@@ -1,0 +1,16 @@
+DROP TABLE IF EXISTS client;
+CREATE TABLE client (
+	id_client SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
+	prenom VARCHAR(100) NOT NULL,
+	nom VARCHAR(100) NOT NULL,
+	mail VARCHAR(200) NOT NULL,
+	pseudo VARCHAR(100) NOT NULL,
+	password VARCHAR(100) NOT NULL,
+	PRIMARY KEY (id_client)
+)
+ENGINE=INNODB;
+LOAD DATA LOCAL INFILE 'C:/MAMP/htdocs/winemoretime/client.csv'
+INTO TABLE client
+FIELDS TERMINATED BY ';' ENCLOSED by '"'
+LINES TERMINATED BY '\r\n'
+(prenom,nom,mail,pseudo,password);
