@@ -8,7 +8,7 @@ CREATE TABLE appellation1 (
 	PRIMARY KEY (id_app)
 )
 ENGINE=INNODB;
-LOAD DATA LOCAl INFILE 'C:/USERS/benjamin/Desktop/GM/GM4/BD/appellation.csv'
+LOAD DATA LOCAl INFILE 'C:/MAMP/htdocs/winemoretime/appellation.csv'
 INTO TABLE appellation1
 FIELDS TERMINATED BY ';' ENCLOSED by '"'
 LINES TERMINATED BY '\r\n'

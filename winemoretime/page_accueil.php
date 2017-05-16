@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <html>
+<!-- On se connecte à la base de donnée -->
 <?php include ('mysqlconnection.php'); ?>
     <head>
     	<title>Wine More Time</title>
@@ -26,7 +27,7 @@
     
 			<form action="" method="POST"> 
 				<fieldset class="login">  	
-					<legend> Me connecter </legend>
+					<legend> Me connecter </legend> <!-- formulaire de connexion -->
 					<table style="width:100%"> 
 						<tr>
 							<td> <label> Pseudo  </label> <input type="text" placeholder="Saisissez votre pseudo" name="pseudo" id="Pseudo1" />   </td> 
@@ -35,10 +36,9 @@
 						</tr>	
 					</table>
 				</fieldset>
-	<?php // php connexion ?>
-<?php
-// Hachage du mot de passe
-//$pass_hache = sha1($_POST['password']);
+<?php 			// Login
+
+// Si l'on voulait plus de sécurité on peut hacher le mot de passe mais nous l'avons pas fait ici $pass_hache = sha1($_POST['password']);
 if(isset($_POST['login']) && !empty($_POST['pseudo']) && !empty($_POST['password'])) {
 // Vérification des identifiants
 	$pseudo = $_POST['pseudo'];
@@ -52,23 +52,22 @@ if(isset($_POST['login']) && !empty($_POST['pseudo']) && !empty($_POST['password
 
 	if (!$resultat)
 	{
-    	echo '<p>Mauvais identifiant ou mot de passe !</p>';
+    	echo '<p>Mauvais identifiant ou mot de passe !</p>';/*on affiche mauvais identifiant ou mot de passe si un des 2 champs rentré n'est pas trouvé en base*/
 	}
 	else
 	{
-    	session_start();
+    	session_start();  /* on lance une session en initialisant la variable de session pseudo */
     	$_SESSION['pseudo'] = $pseudo;
-    	echo '<div class="alert alert-dismissable alert-success"><button type="button" class="close" data-dismiss="alert">X</button> Vous etes bien logué, Redirection dans 3 secondes ! <meta http-equiv="refresh" content="3; URL=choix.php"></div>';
-		header('Location : choix.php');
+    	echo '<div class="alert alert-dismissable alert-success"><button type="button" class="close" data-dismiss="alert">X</button> Vous etes bien logué, Redirection dans 3 secondes ! <meta http-equiv="refresh" content="3; URL=choix.php"></div>'; /* redirige vers la page de choix au bout de 3 secondes 																									en mettant un petit message d'alerte */
 	}
 
 }
 else {
-	echo '<p> Il manque des informations ! </p>';
+	echo '<p> Il manque des informations ! </p>'; // on affiche un message si tout les champs ne sont pas remplis
 }
 ?>
 
-				<fieldset class="inscription">  
+				<fieldset class="inscription">  <!-- Formulaire d'inscription sur le site -->
 					<legend> M'inscrire </legend>
 					<table>
 						<tr>
@@ -105,8 +104,10 @@ else {
 				
 				</fieldset>
 
-		<?php // php inscription ?>
-<?php 
+
+<?php  // Inscription
+
+// on verifie que tout les champs sont remplis
 if(ISSET($_POST['valider']) && !empty($_POST['prenom']) && !empty($_POST['nom']) && !empty($_POST['mail']) && !empty($_POST['pseudo1']) && !empty($_POST['password1']) && !empty($_POST['confirmpassword'])) {
 
 	$prenom = $_POST['prenom'];
@@ -116,41 +117,40 @@ if(ISSET($_POST['valider']) && !empty($_POST['prenom']) && !empty($_POST['nom'])
 	$password1 = $_POST['password1'];
 	$confirmpassword = $_POST['confirmpassword'];
 
-	if ($password1 != $confirmpassword) {
-		echo '<p>mot de passe différent !!</p>';
+	if ($password1 != $confirmpassword) { // verification mot de passe
+		echo '<p>mot de passe différent !!</p>'; // message si l'utilisateur s'inscrit avec deux mots de passe différent
 	}
 	else {
-		$req1 = $bdd->prepare('SELECT id_client FROM client WHERE pseudo = :pseudo1');
+		$req1 = $bdd->prepare('SELECT id_client FROM client WHERE pseudo = :pseudo1'); // verifiaction du pseudo
 		$req1->execute(array("pseudo1" => $pseudo1));
 		$res1 = $req1->fetch();
 		if (!$res1)
 		{
-    		$req2 = $bdd->prepare('SELECT id_client FROM client WHERE mail = :mail');
+    		$req2 = $bdd->prepare('SELECT id_client FROM client WHERE mail = :mail'); // verification du mail
     		$req2->execute(array("mail" => $mail));
     		$res2 = $req2->fetch();
 
-    		if (!$res2) {
+    		if (!$res2) { // si tout est bon on insert dans client le nouveau membre avec les informations saisies
     			$req = $bdd->prepare('INSERT INTO client(prenom,nom,mail,pseudo,password) VALUES (:prenom, :nom, :mail, :pseudo , :password)');
 				$req->execute(array("prenom" => $prenom, "nom" => $nom, "mail" => $mail, "pseudo" => $pseudo1, "password" => $password1));
 				$res = $req->fetch();
 
 				session_start();
     			$_SESSION['pseudo'] = $pseudo1;
-    			echo '<div class="alert alert-dismissable alert-success"><button type="button" class="close" data-dismiss="alert">X</button> Vous etes bien inscit, Redirection dans 3 secondes ! <meta http-equiv="refresh" content="3; URL=choix.php"></div>';
-				header('Location : choix.php');
+    			echo '<div class="alert alert-dismissable alert-success"><button type="button" class="close" data-dismiss="alert">X</button> Vous etes bien inscit, Redirection dans 3 secondes ! <meta http-equiv="refresh" content="3; URL=choix.php"></div>'; /* Validation de l'inscription et 																													redirection vers la page de choix */
     		}
     		else {
-    			echo '<p> adresse mail déja prise, veuillez changer </p>';
+    			echo '<p> adresse mail déja prise, veuillez changer </p>'; // message si l'adresse mail est deja prise par un autre membre
     		}
     		
 		}
 		else {
-			echo '<p>pseudo déja utilisé, veuillez changer !!!</p>';
+			echo '<p>pseudo déja utilisé, veuillez changer !!!</p>';// message si le pseudo est deja utilisé par un autre membre
 		}
 	}
 }
 else {
-	echo '<p> Il manque des informations ! </p>';
+	echo '<p> Il manque des informations ! </p>';// message si tout les champs ne sont pas remplis
 }
 ?>
 

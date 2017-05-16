@@ -1,7 +1,8 @@
 <?php include ('mysqlconnection.php'); ?>
 <?php
 
-/* executer requete 1 a 4 pui 5 a  9 */
+/* executer requete 1 à 3, puis 4, puis 5 à 9 afin d'insérer correctement toutes les données en base 
+   Selon l'ordinateuril faut penser à changer le chemin d'acces au script sql */
 
 
 $req1=file_get_contents("C:/MAMP/htdocs/winemoretime/region.sql");
@@ -12,7 +13,7 @@ $bdd->exec($req2);
 $req3='';
 $req3=file_get_contents("C:/MAMP/htdocs/winemoretime/appellation.sql");
 $bdd->exec($req3);
-$req4='';*/
+$req4='';*
 $req4=file_get_contents("C:/MAMP/htdocs/winemoretime/composeA.sql");
 $bdd->exec($req4);
 $req5='';

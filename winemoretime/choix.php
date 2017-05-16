@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- connexion à la base + verification de session -->
 <?php include ('mysqlconnection.php'); ?>
 <?php include('verif_session.php') ?>
 <html>
@@ -12,7 +13,7 @@
     	<div> <h1 class="title"> Wine more time </h1> </div>
 
     	<div id="conteneurbanniere">
-    		<div class="elementbanniere"><?php echo''.$_SESSION['pseudo'] ?></div>
+    		<div class="elementbanniere"><?php echo''.$_SESSION['pseudo'] ?></div> <!-- On affiche la variable de session pseudo -->
     		<div class="elementbanniere">Choix</div>
     		<div class="elementbanniere"><a href="deconnexion.php"><input class="closebutton" type="submit" name="deconnexion" value="Déconnexion" /></a></div>
     	</div>
@@ -28,7 +29,7 @@ Maintenant à vous de jouer !
 		</div>
 
 
-		<form method="POST" action="">
+		<form method="POST" action=""> <!-- On va fficher le choix des reps possible en récupérant la liste sur la base de donnés (requete) -->
 				<div id="conteneurchoix">
 					<div class="elementchoix"> 
 						<span class="repaschoix">
@@ -40,7 +41,7 @@ while ($donnees = $reponse->fetch()) {
 							<option value="<?php echo $donnees['nom_repas']; ?>"><?php echo $donnees['nom_repas']; ?></option>
 <?php	
 }
-//$reponse->closeCursor();
+$reponse->closeCursor();
 ?>
 							</select>
 						</span>
@@ -51,6 +52,10 @@ while ($donnees = $reponse->fetch()) {
 				</div>
 		</form>  
 <?php
+/* On vérifie que l'on a bien choisi un repas puis on initialise les variables de session
+   choix avec le nom du repas
+   id repas avec son id dans la table
+   region avec "" car on veut afficher dans un premier temps tout les vins peu importe la région*/
 if (isset($_POST['Valider']) && !empty($_POST['repas'])) {
 	$_SESSION['choix'] = $_POST['repas'];
 	$repas =  $_POST['repas'];
@@ -59,8 +64,7 @@ if (isset($_POST['Valider']) && !empty($_POST['repas'])) {
 
 	$resultat = $req->fetch();
 	$_SESSION['id_repas'] = $resultat['id_repas'];
-	echo'<meta http-equiv="refresh" content="0; URL=resultat.php">';
-	header('Location : resultat.php');
+	echo'<meta http-equiv="refresh" content="0; URL=resultat.php">'; // redirection vers la page de résultat
 }
 
 $_SESSION['region'] = "";

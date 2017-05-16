@@ -7,7 +7,7 @@ CREATE TABLE repas (
 	PRIMARY KEY (id_repas)
 )
 ENGINE=INNODB;
-LOAD DATA LOCAl INFILE 'C:/USERS/benjamin/Desktop/GM/GM4/BD/repas_vin.csv'
+LOAD DATA LOCAl INFILE 'C:/MAMP/htdocs/winemoretime/repas_vin.csv'
 INTO TABLE repas
 FIELDS TERMINATED BY ';' ENCLOSED by '"'
 LINES TERMINATED BY '\r\n'

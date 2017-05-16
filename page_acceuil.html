@@ -3,8 +3,9 @@
 <html>
 
     <head>
+    	<title>Wine More Time</title>
         <meta charset="utf-8" />
-        <link href="styleaccueil.css" rel="stylesheet" type="text/css" media="all"/> 
+        <link href="style.css" rel="stylesheet" type="text/css" media="all"/> 
         <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet" type="text/css">
     </head>
 
@@ -18,10 +19,10 @@
 			mariera les saveurs de votre plat mitonné avec tant d'ardeur ! Quel vin allez-vous donc servir ? Notre site est justement là 
 			pour vous faire gagner un temps précieux en répondant à cette question existentielle à votre place ! Pour cela, une seule chose 
 			vous reste à faire : une fois identifié sur votre espace personnel, il vous suffit de sélectionner votre plat dans la base de données et
-			le tour est joué ! Si ce n'est déjà fait, nous vous invitons bien évidemment à vous inscrire à l'aide du formulaire ci-dessous. 
+			le tour est joué ! Si ce n'est déjà fait, nous vous invitons bien évidemment à vous inscrire à l'aide du formulaire ci-dessous. <a href="choix.html"> page choix</a>
 		</div>
     
-		<div class="main"> 
+		<div class="mainacc"> 
     
 			<form action="POST"> 
 				<fieldset class="login">  	
@@ -30,12 +31,11 @@
 						<tr>
 							<td> <label> Pseudo  </label> <input type="text" placeholder="Saisissez votre pseudo" name="monPseudo1" id="pseudo1" />   </td> 
 							<td> <label> Mot de passe </label> <input type="password" placeholder="Saisissez votre mot de passe" name="monPassword1" id="password1" /> </td>
-							<td> <input  class="loginbutton" type="submit" name="login" value="Login"/> </td>
+							<td> <input  class="loginbutton" type="submit" name="login" value="Login" /> </td>
 						</tr>	
 					</table>
 				</fieldset>
 	
-				<div class="etiquetteOU"> <label> OU </label> </div>
     
 				<fieldset class="inscription">  
 					<legend> M'inscrire </legend>
@@ -70,7 +70,7 @@
 					<input type="checkbox" name="check" value="Conditions" checked="checked"/> J'accepte les conditions générales du site 
 					</br>
 				
-					<div> <input class="submitbutton" type="submit" name="Valider" value="Soumettre" /> </div>
+					<div> <input class="submitbutton" type="submit" name="Valider" value="S'inscrire" /> </div>
 				
 				</fieldset>
 			</form>

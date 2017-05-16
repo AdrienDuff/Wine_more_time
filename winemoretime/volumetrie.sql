@@ -6,7 +6,7 @@ CREATE TABLE volumetrie (
 	PRIMARY KEY (id_vol)
 )
 ENGINE=INNODB;
-LOAD DATA LOCAl INFILE 'C:/USERS/benjamin/Desktop/GM/GM4/BD/volumetrie.csv'
+LOAD DATA LOCAl INFILE 'C:/MAMP/htdocs/winemoretime/volumetrie.csv'
 INTO TABLE volumetrie
 FIELDS TERMINATED BY ';' ENCLOSED by '"'
 LINES TERMINATED BY '\r\n'

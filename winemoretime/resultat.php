@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- connexion à la base + verification de session -->
 <?php include ('mysqlconnection.php'); ?>
 <?php include('verif_session.php') ?>
 <html>
@@ -12,15 +13,15 @@
     	<div> <h1 class="title"> Wine more time </h1> </div>
 
     	<div id="conteneurbanniere">
-    		<div class="elementbanniere"><?php echo''.$_SESSION['pseudo']; ?></div>
-    		<div class="elementbanniere"><?php echo ''.$_SESSION['id_repas'].'-'.$_SESSION['choix']; ?></div>
+    		<div class="elementbanniere"><?php echo''.$_SESSION['pseudo']; ?></div> <!-- On affiche la variable de session pseudo -->
+    		<div class="elementbanniere"><?php echo ''.$_SESSION['id_repas'].'-'.$_SESSION['choix']; ?></div> <!-- On affiche la variable de session choix correspondant au repas et l'id du repas -->
     		<div class="elementbanniere"><a href="deconnexion.php"><input class="closebutton" type="submit" name="deconnexion" value="Déconnexion" /></a></div>
         </div>
 
     <body>
         <div id="conteneurcarte">
             <div class="cartefr">
-                <script src="cmap/map_france.js"></script>
+                <script src="cmap/map_france.js"></script> <!-- Excecution du script pour afficher la carte cliquable -->
                 <script>francefree();</script>
 
             </div>
@@ -36,11 +37,11 @@
                 </tr> 
                 <?php
                 $region = $_SESSION['region'];
-                // On recupere les vins associés au repas
+                // On recupere les vins associés au repas et à la region voulue
                 if ($region != "") {
                 $monrepas = $_SESSION['id_repas'];
                 $reponse = $bdd->query('SELECT nom_vin,app,couleur,date FROM vin JOIN associe ON associe.id_repas = "'.$monrepas.'" AND associe.id_vin = vin.id_vin JOIN appellation1 ON appellation1.nom_app = vin.app WHERE appellation1.region_app = "'.$region.'"');
-                $reponse ->fetch(); 
+                $reponse ->fetch();
                 // On affiche le resultat
                 while ($donnees = $reponse->fetch()) {
                      //On affiche les données dans le tableau
@@ -88,7 +89,7 @@
 
 <?php
 if (isset($_POST['newsearch'])) {
-    echo '<meta http-equiv="refresh" content="0; URL=choix.php">';
+    echo '<meta http-equiv="refresh" content="0; URL=choix.php">'; // redirection vers la page de choix si on clique sur nouvelle recherche
 }
 ?>        
     </body>

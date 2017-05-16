@@ -6,7 +6,7 @@ CREATE TABLE app_cepage (
 	appellation VARCHAR(100) NOT NULL
 )
 ENGINE=INNODB;
-LOAD DATA LOCAl INFILE 'C:/USERS/benjamin/Desktop/GM/GM4/BD/cepage_app.csv'
+LOAD DATA LOCAl INFILE 'C:/MAMP/htdocs/winemoretime/cepage_app.csv'
 INTO TABLE app_cepage
 FIELDS TERMINATED BY ';' ENCLOSED by '"'
 LINES TERMINATED BY '\r\n'

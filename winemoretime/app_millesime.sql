@@ -6,7 +6,7 @@ CREATE TABLE app_mill (
 	type_app VARCHAR(100) NOT NULL
 )
 ENGINE=INNODB;
-LOAD DATA LOCAl INFILE 'C:/USERS/benjamin/Desktop/GM/GM4/BD/app_millesime.csv'
+LOAD DATA LOCAl INFILE 'C:/MAMP/htdocs/winemoretime/app_millesime.csv'
 INTO TABLE app_mill
 FIELDS TERMINATED BY ';' ENCLOSED by '"'
 LINES TERMINATED BY '\r\n'

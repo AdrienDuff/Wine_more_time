@@ -1,3 +1,5 @@
+/* CSS associée à la page d'accueil du site */
+
  			/* CSS relatif à l'apparence générale du site */
 /* Définit les options de style du titre principal */  
 .title {
@@ -13,7 +15,7 @@
 	text-shadow: 4px 4px 3px rgba(0,0,0,0.3); 
 }
 
-/* Définit les options de style du texte  */
+/* Définit les options de style du texte d'introduction */
 .texte {
 	background-color: rgb(230,230,230);  
 	margin-top: 50px;
@@ -26,12 +28,8 @@
 	padding-top: 30px;
 	padding-bottom: 30px;
 	border: 3px ridge rgb(128,128,128);
-	color : rgb(107,7,13);
 }
 
-p {
-	color:red;
-}
 body {
 	background-color: rgb(230,230,230);
 }
@@ -102,7 +100,7 @@ legend {
 
 
 		/* CSS spécifique page de choix */
-/* conteneur de la bannière affichant la variable de session, le bouton de déconnexion et le titre de la page*/
+
 #conteneurbanniere {
 	display: flex;
 	flex-wrap: nowrap;
@@ -116,13 +114,6 @@ legend {
 	color:white;
 }
 
-.closebutton {
-	background-color: rgb(107,7,13);
-	border-radius: 8px;
-	color:white;
-}
-
-/* conteneur pour effectuer son choix de plat (liste déroulante + validation)*/
 #conteneurchoix {
 	display: flex;
 	flex-wrap: nowrap;
@@ -147,14 +138,18 @@ legend {
     justify-content: center;
 }
 
-
+.closebutton {
+	background-color: rgb(107,7,13);
+	border-radius: 8px;
+	color:white;
+}
 
 
 /* liste déroulante du repas select*/
-.repaschoix--large {
+.repas--large {
     font-size: 1.5em;
 }
-.repaschoix--small {
+.repas--small {
     font-size: 1.5em;
 }
 .repas__select{
@@ -169,7 +164,7 @@ legend {
       (-moz-appearance: none) or
       (appearance: none)) {
 
-    .repaschoix {
+    .repas {
         position: relative;
         display: inline-block;
         vertical-align: middle;
@@ -184,14 +179,14 @@ legend {
         appearance: none;    
     }
 
-    .repaschoix::before,
-    .repaschoix::after {
+    .repas::before,
+    .repas::after {
         content: "";
         position: absolute;
         pointer-events: none;
     }
 
-    .repaschoix::after { /*  Custom dropdown arrow */
+    .repas::after { /*  Custom dropdown arrow */
         content: "\25BC";
         height: 1em;
         font-size: .625em;
@@ -200,7 +195,7 @@ legend {
         top: 50%; margin-top: -.5em;
     }
 
-    .repaschoix::before { /*  Custom dropdown arrow cover */
+    .repas::before { /*  Custom dropdown arrow cover */
         top: .5em; bottom: .5em;
         background-color: rgb(107,9,26);
     }
@@ -209,19 +204,20 @@ legend {
         color: rgba(0,0,0,.1);
     }
 
-    .repaschoix.repas--disabled::after {
+    .repas.repas--disabled::after {
         color: rgba(0,0,0,.1);
     }
 
     /* FF only temp fix */
     @-moz-document url-prefix() {
         .repas__select              { padding-right: .9em }
-        .repaschoix--large .repas__select { padding-right: 1.3em }
-        .repaschoix--small .repas__select { padding-right: .5em }
+        .repas--large .repas__select { padding-right: 1.3em }
+        .repas--small .repas__select { padding-right: .5em }
     }
 }
-		/* style spécifique pour la page de résultat */
-/* conteneur pour afficher la carte de france et la liste des vins de la base de donnée*/
+
+/* style spécifique pour la page de résultat */
+
 #conteneurcarte {
 	display: flex;
 	flex-wrap: nowrap;
@@ -234,25 +230,19 @@ legend {
 	
 }
 
-.BD{
-	height: 320px;
+.BD {
 	padding-left: 10px;
 	text-align: justify;
 	color:rgb(107,7,13);
-	overflow: auto;
-}
-.tableauBD {
-	overflow:scroll;
 }
 
-/* Explication de comment utiliser cette page*/
 .explication {
 	text-align: justify;
 	color : rgb(107,7,13);
 	margin-left: 2%;
 	margin-right: 2%;
 }
-/* Définition de la pour effectuer une nouvelle recherche + bouton*/
+
 .search {
 	text-align: center;
 }
@@ -263,5 +253,3 @@ legend {
 	color:white;
 	text-align: center;
 }
-
-

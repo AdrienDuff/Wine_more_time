@@ -10,7 +10,7 @@ CREATE TABLE vin (
 	PRIMARY KEY (id_vin)
 )
 ENGINE=INNODB;
-LOAD DATA LOCAL INFILE 'C:/USERS/benjamin/Desktop/GM/GM4/BD/vin.csv'
+LOAD DATA LOCAL INFILE 'C:/MAMP/htdocs/winemoretime/vin.csv'
 INTO TABLE vin
 FIELDS TERMINATED BY ';' ENCLOSED by '"'
 LINES TERMINATED BY '\r\n'
