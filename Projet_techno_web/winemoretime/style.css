@@ -1,0 +1,267 @@
+ 			/* CSS relatif à l'apparence générale du site */
+/* Définit les options de style du titre principal */  
+.title {
+	text-align: center;
+	background-color: rgb(230,230,230); 
+	padding: 30px;
+	border-top: 5px ridge rgb(128,128,128);
+	border-bottom: 5px ridge rgb(128,128,128);
+	margin-left: 0%;
+	margin-right: 0%;
+	font: 400 40px/0.8 'Great Vibes', Helvetica, sans-serif;
+	color: rgb(109,7,26);
+	text-shadow: 4px 4px 3px rgba(0,0,0,0.3); 
+}
+
+/* Définit les options de style du texte  */
+.texte {
+	background-color: rgb(230,230,230);  
+	margin-top: 50px;
+	margin-left: 10%;
+	margin-right: 10%;
+	margin-bottom: 50px;
+	text-align: justify;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	border: 3px ridge rgb(128,128,128);
+	color : rgb(107,7,13);
+}
+
+p {
+	color:red;
+}
+body {
+	background-color: rgb(230,230,230);
+}
+
+
+			/* CSS spécifique de la page d'acceuil */
+/* Définit les options de style de la partie "Me connecter" (pour les utilisateurs étant déjà inscrits) */
+.login {
+	background-color: rgb(109,7,26);
+	margin-top: 5%;
+	margin-left: 10%;
+	margin-right: 10%;
+	margin-bottom: 5%;
+	border: 1px solid black;
+	border-radius: 10px;
+	color: white;
+}
+
+
+/* Définit les options de style du bouton de Login */
+.loginbutton {
+	background-color: rgb(107,7,13);
+	width: 90px;
+	padding: 10px;
+	border-radius: 8px;
+	color:white;
+}
+
+/* Définit les options de style du formulaire d'inscription */
+.inscription {
+	background-color: rgb(109,7,26);
+	margin-top: 5%;
+	margin-left: 10%;
+	margin-right: 10%;
+	margin-bottom: 5%;
+	border: 1px solid black;
+	border-radius: 10px;
+	padding: 20px;
+	color:white;
+}
+
+/* Définit les options de style du bouton "Soumettre" */
+.submitbutton {
+	background-color: rgb(107,7,13);
+	margin-left: 80%;
+	width: 90px;
+	padding: 10px;
+	border-radius: 8px;
+	color:white;
+}
+
+/* Définit les options de style des légendes de <fieldset></fieldset> */
+legend {
+	display: block;
+	background-color: gray;
+	padding: 3px;
+	border: 1px solid black;
+	color:black;
+}
+
+/* Définit les options de style du bloc principal réunissant Connexion et Inscription */
+.mainacc {
+	background-color: rgb(230,230,230);
+	border: 1px solid rgb(128,128,128);
+	margin-left: 2%;
+	margin-right: 2%;
+}
+
+
+		/* CSS spécifique page de choix */
+/* conteneur de la bannière affichant la variable de session, le bouton de déconnexion et le titre de la page*/
+#conteneurbanniere {
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	margin:30px;
+}
+.elementbanniere {
+	background-color: rgb(109,7,26);
+	padding: 10px;
+	border-radius: 8px;
+	color:white;
+}
+
+.closebutton {
+	background-color: rgb(107,7,13);
+	border-radius: 8px;
+	color:white;
+}
+
+/* conteneur pour effectuer son choix de plat (liste déroulante + validation)*/
+#conteneurchoix {
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: center;
+	
+}
+.elementchoix {
+	background-color: rgb(109,7,26);
+	padding: 20px;
+	border-radius: 8px;
+	color:white;
+}
+
+
+.choicebutton {
+	background-color: rgb(107,7,13);
+	border-radius: 8px;
+	color:white;
+	position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+/* liste déroulante du repas select*/
+.repaschoix--large {
+    font-size: 1.5em;
+}
+.repaschoix--small {
+    font-size: 1.5em;
+}
+.repas__select{
+    font-size:inherit; /*inherit size from .custom-dropdown */
+    /*padding: 10px;  add some space*/
+    /*margin: 10px;  remove default margins */
+    background-color: rgb(107,7,13);
+    color: white; 
+}
+@supports (pointer-events: none) and
+      ((-webkit-appearance: none) or
+      (-moz-appearance: none) or
+      (appearance: none)) {
+
+    .repaschoix {
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .repas__select {
+        padding-right: 2.5em; /* accommodate with the pseudo elements for the dropdown arrow */
+        border: 3;
+        border-radius: 5px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;    
+    }
+
+    .repaschoix::before,
+    .repaschoix::after {
+        content: "";
+        position: absolute;
+        pointer-events: none;
+    }
+
+    .repaschoix::after { /*  Custom dropdown arrow */
+        content: "\25BC";
+        height: 1em;
+        font-size: .625em;
+        line-height: 1;
+        right: 1.2em;
+        top: 50%; margin-top: -.5em;
+    }
+
+    .repaschoix::before { /*  Custom dropdown arrow cover */
+        top: .5em; bottom: .5em;
+        background-color: rgb(107,9,26);
+    }
+
+    .repas__select[disabled] {
+        color: rgba(0,0,0,.1);
+    }
+
+    .repaschoix.repas--disabled::after {
+        color: rgba(0,0,0,.1);
+    }
+
+    /* FF only temp fix */
+    @-moz-document url-prefix() {
+        .repas__select              { padding-right: .9em }
+        .repaschoix--large .repas__select { padding-right: 1.3em }
+        .repaschoix--small .repas__select { padding-right: .5em }
+    }
+}
+		/* style spécifique pour la page de résultat */
+/* conteneur pour afficher la carte de france et la liste des vins de la base de donnée*/
+#conteneurcarte {
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: center;
+	
+	
+}
+
+.cartefr {
+	
+}
+
+.BD{
+	height: 320px;
+	padding-left: 10px;
+	text-align: justify;
+	color:rgb(107,7,13);
+	overflow: auto;
+}
+.tableauBD {
+	overflow:scroll;
+}
+
+/* Explication de comment utiliser cette page*/
+.explication {
+	text-align: justify;
+	color : rgb(107,7,13);
+	margin-left: 2%;
+	margin-right: 2%;
+}
+/* Définition de la pour effectuer une nouvelle recherche + bouton*/
+.search {
+	text-align: center;
+}
+
+.searchbutton {
+	background-color: rgb(107,7,13);
+	border-radius: 8px;
+	color:white;
+	text-align: center;
+}
+
+
